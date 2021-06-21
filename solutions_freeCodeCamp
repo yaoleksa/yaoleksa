@@ -1,0 +1,19 @@
+function sym(...args) {
+  const df = (a,b) => {
+    let rt=[];
+    for(let i of b) {
+      if(!a.includes(i)) {
+        rt.push(i);
+      }
+    }
+    for(let i of a) {
+      if(!b.includes(i)) {
+        rt.push(i);
+      }
+    }
+    return rt;
+  }
+  return Array.from(new Set(args.reduce(df).sort()));
+}
+
+console.log(sym([1, 2, 3, 3], [5, 2, 1, 4])); // [1, 4, 5]
