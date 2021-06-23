@@ -1,3 +1,4 @@
+// https://www.freecodecamp.org/learn/coding-interview-prep/algorithms/find-the-symmetric-difference
 function sym(...args) {
   const df = (a,b) => {
     let rt=[];
@@ -17,3 +18,26 @@ function sym(...args) {
 }
 
 console.log(sym([1, 2, 3, 3], [5, 2, 1, 4])); // [1, 4, 5]
+
+// https://www.freecodecamp.org/learn/coding-interview-prep/algorithms/inventory-update
+function updateInventory(arr1, arr2) {
+  arr2.forEach(e => {
+    if(arr1.flat(1).includes(e[1])) {
+      arr1[arr1.flat(1).indexOf(e[1])*0.5-0.5][0] += e[0];
+    } else {
+      arr1.push(e);
+    };
+  });
+
+  return arr1.sort((a, b) => {
+    var na = a[1].toLowerCase();
+    var nb = b[1].toLowerCase();
+    if(na > nb) {
+      return 1;
+    } 
+    if(na < nb) {
+      return -1;
+    }
+    return 0;
+  });
+}
